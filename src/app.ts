@@ -10,7 +10,7 @@ import { errorHandler } from './middleware/errorHandler';
 
 dotenv.config();
 
-const swaggerDocument = YAML.load('swagger.yaml');
+const swaggerDocument = YAML.load(path.join(__dirname, './swagger.yaml'));
 
 const app = express();
 app.use(cors());
