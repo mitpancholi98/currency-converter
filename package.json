@@ -1,6 +1,6 @@
 {
   "name": "currency-converter-api",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A RESTful API for real-time and mock currency conversion.",
   "main": "index.js",
   "scripts": {

@@ -29,7 +29,7 @@ npm install
 cp .env.example .env
 
 # 4. Start Redis container for development (in detached mode)
-docker compose up -d
+docker compose up --build -d
 
 # 5. Start the development server
 npm run dev
