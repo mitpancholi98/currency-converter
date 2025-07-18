@@ -10,7 +10,7 @@
     "type-check": "tsc --noEmit",
     "lint": "eslint . --ext .ts",
     "lint:fix": "eslint . --ext .ts --fix",
-    "test": "jest",
+    "test": "jest --detectOpenHandles --forceExit",
     "test:watch": "jest --watchAll --runInBand --detectOpenHandles --forceExit"
   },
   "keywords": [],
