@@ -20,7 +20,7 @@ Features include Redis caching, OpenAPI documentation, Docker support, and CI/CD
 ```bash
 # 1. Clone the repository
 git clone <repo>
-cd currency-api
+cd currency-converter
 
 # 2. Install dependencies
 npm install

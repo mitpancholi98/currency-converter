@@ -1,13 +1,8 @@
 import { ZodError } from 'zod';
-import { Request, Response, NextFunction } from 'express';
+import { Request, Response } from 'express';
 import axios from 'axios';
 
-export const errorHandler = (
-  err: unknown,
-  _: Request,
-  res: Response,
-  __: NextFunction
-) => {
+export const errorHandler = (err: unknown, _req: Request, res: Response) => {
   if (err instanceof ZodError) {
     return res.status(400).json({
       status: 400,
