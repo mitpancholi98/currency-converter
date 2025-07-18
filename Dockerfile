@@ -1,11 +1,11 @@
 FROM node:22-alpine
 
 WORKDIR /app
-COPY package*.json ./
-RUN npm install
 
-COPY . .
+COPY dist/ ./dist/
+COPY package.json ./
+COPY package-lock.json ./
 
-RUN npm run build
+RUN npm ci --omit=dev
 
 CMD ["npm", "start"]

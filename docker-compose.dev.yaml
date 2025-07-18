@@ -1,8 +1,0 @@
-version: '3'
-name: currency-converter-dev
-services:
-  redis:
-    image: redis:7
-    container_name: redis-dev
-    ports:
-      - '${REDIS_PORT}:${REDIS_PORT}'

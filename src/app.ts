@@ -8,9 +8,7 @@ import path from 'path';
 import YAML from 'yamljs';
 import { errorHandler } from './middleware/errorHandler';
 
-const envFile =
-  process.env.NODE_ENV === 'production' ? '.env' : '.env.development';
-dotenv.config({ path: envFile });
+dotenv.config();
 
 const swaggerDocument = YAML.load('swagger.yaml');
 
