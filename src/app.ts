@@ -1,15 +1,14 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
+
 import convertRouter from './routes/convert';
 import swaggerUi from 'swagger-ui-express';
 import path from 'path';
 import YAML from 'yamljs';
 import { errorHandler } from './middleware/errorHandler';
 
-const envFile =
-  process.env.NODE_ENV === 'production' ? '.env' : '.env.development';
-dotenv.config({ path: envFile });
+dotenv.config();
 
 const swaggerDocument = YAML.load('swagger.yaml');
 

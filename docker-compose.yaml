@@ -1,16 +1,6 @@
 version: '3'
 name: currency-converter
 services:
-  api:
-    build: .
-    container_name: api
-    ports:
-      - '${APP_PORT}:${APP_PORT}'
-    environment:
-      - REDIS_HOST=${REDIS_HOST}
-      - REDIS_PORT=${REDIS_PORT}
-    depends_on:
-      - redis
   redis:
     image: redis:7
     container_name: redis

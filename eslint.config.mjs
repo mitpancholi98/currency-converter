@@ -2,6 +2,9 @@ import js from '@eslint/js';
 import tseslint from 'typescript-eslint';
 
 export default [
+  {
+    ignores: ['jest.config.ts'],
+  },
   js.configs.recommended,
   ...tseslint.configs.recommended,
   {
@@ -9,16 +12,8 @@ export default [
     languageOptions: {
       parser: tseslint.parser,
       parserOptions: {
-        ecmaVersion: 'latest',
-        sourceType: 'module',
+        project: './tsconfig.json',
       },
-    },
-    rules: {
-      'no-console': 'warn',
-      '@typescript-eslint/no-unused-vars': [
-        'warn',
-        { argsIgnorePattern: '^_' },
-      ],
     },
   },
 ];

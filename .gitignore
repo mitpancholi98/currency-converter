@@ -29,6 +29,3 @@ docker-compose.override.yml
 Thumbs.db
 
 .jest/
-
-package-lock.json
-yarn.lock
