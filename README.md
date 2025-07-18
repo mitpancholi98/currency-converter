@@ -26,10 +26,10 @@ cd currency-converter
 npm install
 
 # 3. Copy environment config
-cp .env.example .env.development
+cp .env.example .env
 
 # 4. Start Redis container for development (in detached mode)
-docker compose -f docker-compose.dev.yaml --env-file .env.development up -d
+docker compose up -d
 
 # 5. Start the development server
 npm run dev
