@@ -1,9 +1,14 @@
 import request from 'supertest';
 import axios from 'axios';
 import app from '../../app';
+import { getCache, setCache } from '../../utils/cache';
 
 jest.mock('axios');
+jest.mock('../../utils/cache.ts');
+
 const mockedAxios = axios as jest.Mocked<typeof axios>;
+const mockedGetCache = getCache as jest.Mock;
+const mockedSetCache = setCache as jest.Mock;
 
 afterAll((done) => {
   done();
@@ -11,14 +16,15 @@ afterAll((done) => {
 
 describe('GET /convert', () => {
   it('should convert currency using mocked exchange rate', async () => {
+    mockedGetCache.mockResolvedValue(null);
     mockedAxios.get.mockResolvedValueOnce({
       data: {
         rates: {
-          USD: 1,
           EUR: 0.85,
         },
       },
     });
+    mockedSetCache.mockResolvedValue(undefined);
 
     const response = await request(app)
       .get('/api/convert')
