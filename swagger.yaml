@@ -1,0 +1,107 @@
+openapi: 3.0.0
+info:
+  title: Currency Conversion API
+  version: 1.0.0
+  description: Convert currency between supported pairs
+paths:
+  /api/convert:
+    get:
+      summary: Convert currency
+      parameters:
+        - in: query
+          name: from
+          schema:
+            type: string
+            example: USD
+          required: true
+        - in: query
+          name: to
+          schema:
+            type: string
+            example: INR
+          required: true
+        - in: query
+          name: amount
+          schema:
+            type: number
+            example: 100
+          required: true
+      responses:
+        200:
+          description: Currency converted successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    example: 200
+                  success:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: Currency converted successfully
+                  data:
+                    type: object
+                    properties:
+                      from:
+                        type: string
+                        example: USD
+                      to:
+                        type: string
+                        example: INR
+                      amount:
+                        type: number
+                        example: 100
+                      converted:
+                        type: number
+                        example: 8320
+        400:
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    example: 400
+                  error:
+                    type: string
+                    example: Bad Request
+                  message:
+                    type: string
+                    example: Validation failed
+                  details:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        path:
+                          type: string
+                          example: amount
+                        message:
+                          type: string
+                          example: 'amount must be greater than 0'
+        500:
+          description: Conversion failed
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    example: 500
+                  error:
+                    type: string
+                    example: Internal Server Error
+                  message:
+                    type: string
+                    example: Conversion failed
+                  details:
+                    type: array
+                    items:
+                      type: object
