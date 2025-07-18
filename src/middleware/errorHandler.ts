@@ -1,8 +1,14 @@
 import { ZodError } from 'zod';
-import { Request, Response } from 'express';
+import { NextFunction, Request, Response } from 'express';
 import axios from 'axios';
 
-export const errorHandler = (err: unknown, _req: Request, res: Response) => {
+export const errorHandler = (
+  err: unknown,
+  _req: Request,
+  res: Response,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  _next: NextFunction
+) => {
   if (err instanceof ZodError) {
     return res.status(400).json({
       status: 400,
@@ -28,7 +34,7 @@ export const errorHandler = (err: unknown, _req: Request, res: Response) => {
   const status = (err as { status?: number })?.status || 500;
   const message = (err as Error)?.message || 'Internal Server Error';
 
-  return res.status(status).json({
+  res.status(status).json({
     status,
     error: status === 500 ? 'Internal Server Error' : 'Error',
     message,

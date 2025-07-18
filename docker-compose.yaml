@@ -7,6 +7,8 @@ services:
     ports:
       - '${APP_PORT}:${APP_PORT}'
     environment:
+      - NODE_ENV=production
+      - APP_PORT=${APP_PORT}
       - REDIS_HOST=${REDIS_HOST}
       - REDIS_PORT=${REDIS_PORT}
     depends_on:
