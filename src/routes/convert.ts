@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { convertCurrency } from '../services/currencyService';
+import { convertCurrency } from '../services/currency.service';
 import { currencyConverterSchema } from '../schema/convert';
 
 const router = Router();

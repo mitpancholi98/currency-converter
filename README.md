@@ -17,6 +17,19 @@ Features include Redis caching, OpenAPI documentation, Docker support, and CI/CD
 
 ## 🛠️ Local Development Setup
 
+### ✅ Prerequisites
+
+Make sure the following are installed:
+
+- **Node.js** `>= 22`  
+  [Download from nodejs.org](https://nodejs.org/)
+- **Docker & Docker Compose**  
+  [Download Docker Desktop](https://www.docker.com/products/docker-desktop/)
+
+---
+
+### 🚧 Setup Steps
+
 ```bash
 # 1. Clone the repository
 git clone <repo>
@@ -33,4 +46,17 @@ docker compose up --build -d
 
 # 5. Start the development server
 npm run dev
+```
+
+### 📦 Useful Commands
+
+```bash
+# Run TypeScript type checking
+npm run type-check
+
+# Run unit tests
+npm run test
+
+# Build the production bundle
+npm run build
 ```

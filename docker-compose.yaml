@@ -1,5 +1,4 @@
-version: '3'
-name: currency-converter
+name: dev-currency-converter
 services:
   redis:
     image: redis:7

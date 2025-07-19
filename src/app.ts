@@ -7,6 +7,7 @@ import swaggerUi from 'swagger-ui-express';
 import path from 'path';
 import YAML from 'yamljs';
 import { errorHandler } from './middleware/errorHandler';
+import { notFoundHandler } from './middleware/notFoundHandler';
 
 dotenv.config();
 
@@ -24,6 +25,7 @@ app.use(express.json());
 app.use('/api/convert', convertRouter);
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
+app.use(notFoundHandler);
 app.use(errorHandler);
 
 export default app;

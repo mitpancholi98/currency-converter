@@ -6,6 +6,7 @@ const redis = new Redis({
 });
 
 export const getCache = (key: string): Promise<string | null> => redis.get(key);
+
 export const setCache = (
   key: string,
   value: string,
